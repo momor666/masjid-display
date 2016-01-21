@@ -1,0 +1,22 @@
+{
+  "name": "masjid-display",
+  "version": "1.0.0",
+  "description": "Masjid display board for announcements, prayer times, and iqama times",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "masjid",
+    "display",
+    "iqama",
+    "times",
+    "prayer",
+    "times"
+  ],
+  "author": "Nabeel El-Husayni & Ibrahim Hassan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

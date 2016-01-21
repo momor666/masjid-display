@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>ICNE Sharon Iqama Times</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <section class="block">
+      <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="active item main">
+            <nav class="navbar" role="navigation">
+              <div class="container-fluid head-background" style="background-color: #2CA4AB;">
+                <div class="row">
+                  <div class="col-xs-4 img-wrapper" >
+                    <img class="icne-logo" src="imgs/logo-icne.jpg">
+                    <h2 class="text-center">ICNE - Sharon</h2>
+                  </div>
+                  <div class="col-xs-4 head-text text-center">
+                    <h1><span class="english-header">Prayer Times</span><br><span class="arabic a-header">أوقات الصلاة</span></h1>
+                  </div>
+                  <div class="col-xs-4">
+                    <div class="hero-circle">
+                      <div class="hero-face">
+                        <div id="hour" class="hero-hour"></div>
+                        <div id="minute" class="hero-minute"></div>
+                        <div id="second" class="hero-second"></div>
+                      </div>
+                    </div>
+                    <h2 class="text-center" id="time"></h2>
+                  </div>
+                </div>
+              </div>
+              <!-- /.container -->
+            </nav>
+            <!-- Page Content -->
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-12 text-center">
+                  <h1 id="date"></h1>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-xs-6">
+                  <table class="table borderless text-center">
+                    <thead>
+                      <tr>
+                        <td colspan=2>Prayer</td>
+                        <td>Athan</td>
+                        <td>Iqama</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td> <span>Fajr</span> </td>
+                        <td> <span class="arabic a-prayer">الفجر</span> </td>
+                        <td> <span id="t_fajr"></span> </td>
+                        <td> <span id="i_fajr"></span> </td>
+                      </tr>
+
+                      <tr>
+                        <td> <span>Dhuhr</span> </td>
+                        <td> <span class="arabic a-prayer">الظهر</span> </td>
+                        <td> <span id="t_dhuhr"></span> </td>
+                        <td> <span id="i_dhuhr"></span> </td>
+                      </tr>
+
+                      <tr>
+                        <td> <span>Asr</span> </td>
+                        <td> <span class="arabic a-prayer">العصر</span> </td>
+                        <td> <span id="t_asr"></span> </td>
+                        <td> <span id="i_asr"></span> </td>
+                      </tr>
+
+                      <tr>
+                        <td> <span>Maghrib</span> </td>
+                        <td> <span class="arabic a-prayer">المغرب</span> </td>
+                        <td> <span id="t_maghrib"></span> </td>
+                        <td> <span id="i_maghrib"></span> </td>
+                      </tr>
+
+                      <tr>
+                        <td> <span>Isha</span> </td>
+                        <td> <span class="arabic a-prayer">العشاء</span> </td>
+                        <td> <span id="t_isha"></span> </td>
+                        <td> <span id="i_isha"></span> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-xs-6 text-center">
+                  <div class="row">
+                    <div class="col-xs-12 next-prayer">
+                      <h1 class="gray">Next prayer:</h1>
+                      <div class="row" style="margin-top:20px">
+                        <div class="col-xs-6">
+                          <span id="next_prayer"></span>&emsp;<span class="arabic a-prayer" id="n_prayer_a"></span>
+                        </div>
+                        <div class="col-xs-6 next-prayer">
+                          <span>Athan <span id="athan_mins"></span></span>
+                          <br>
+                          <span>Salat <span id="salat_mins"></span></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h1 class="arabic ayah"> ۚ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا . . .<br><small class="gray">﴾سورة النساء١٠٣﴿</small></h1>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <h2 class="translation">...indeed, prayer has been decreed upon the believers at specified times.<br><small class="gray">[Quran 4:103]</small></h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="no-top-margin">
+              <div class="row footer">
+                <div class="col-xs-6 text-center">
+                  <h2 class="foot">Sunrise &emsp; <span id="t_sunrise"></span> &emsp; <span class="arabic a-prayer">الشروق</span></h2>
+                </div>
+                <div class="col-xs-6 text-center">
+                  <h2 class="foot">Jummah &emsp; 1:00 pm &emsp; <span class="arabic a-prayer">الجمعة</span></h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Navigation -->
+    <!-- /.container -->
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/moment.min.js"></script>
+    <script src="js/moment-hijri.js"></script>
+    <script src="js/PrayTimes.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Sideloaded data -->
+    <script src="data/iqamas.json"></script>
+  </body>
+</html>
