@@ -14,8 +14,9 @@
   }
 
   function dailyUpdate() {
+    var ms_to_midnight = moment().endOf('day') - moment();
     updatePrayerTime();
-    setTimeout(dailyUpdate, 1000 * 60 * 60 * 24);
+    setTimeout(dailyUpdate, ms_to_midnight);
   }
 
   secondlyUpdate();
