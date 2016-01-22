@@ -83,7 +83,7 @@ var helpers = (function() {
   // Async call to fetch filenames from announcments folder
   _helpers.asyncAnnouncements = function() {
     return $.ajax({
-      url: 'imgs/slides/'
+      url: 'slides'
     });
   }
 

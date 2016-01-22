@@ -25,16 +25,12 @@
 
   function displayAnnouncments() {
     helpers.asyncAnnouncements().success(function(announcments) {
-      
-      var $ans = $(announcments).find("td > a");
 
-      $ans.splice(0,1);
-
-      $ans.each(function(){
-        var $html = '<div class="item"> <img src=imgs/slides/' + $(this).attr('href') + ' /> </div>';
+      for (var i in announcments) {
+        var $html = '<div class="item"> <img src=imgs/slides/' + announcments[i] + ' /> </div>';
 
         $('.carousel-inner').append($html);
-      });
+      }
 
     });
 
