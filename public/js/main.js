@@ -68,6 +68,7 @@
 
   function updateNextPrayer() {
     if (n_pray_info) {
+      n_pray_info = helpers.nextPrayerInfo(iqama_times, pray_times, m_i_time);
       $("#next_prayer").text(n_pray_info['prayer']);
       $("#n_prayer_a") .text(n_pray_info['arabic']);
       $("#athan_mins") .text(n_pray_info['athan']);
