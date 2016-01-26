@@ -102,5 +102,15 @@ var helpers = (function() {
     return arabics[prayer];
   }
 
+  _helpers.alert = function(type, message) {
+    $('#alert').html('' +
+      '<div class="alert alert-' + type + ' alert-dismissable">' + 
+        '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + 
+        '<span>' + 
+          message +
+        '</span>' + 
+      '</div>');
+  }
+
   return _helpers;
 })(); 

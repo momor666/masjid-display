@@ -24,7 +24,7 @@ app.get('/config', function(req, res) {
 
 app.post('/config', function(req, res) {
   console.log(req.body);
-  res.json({"response": "OK"});
+  res.json({"response": {"status": "OK", "code": 200 }});
 });
 
 app.get('/iqamas', function(req, res) {
