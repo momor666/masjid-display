@@ -9,6 +9,12 @@ var port      = 3000;
 var config_details = require('./public/data/config.json');
 var iqama_times    = require('./public/data/iqamas.json');
 
+// In order to reload the json files after changing them
+require.reload = function reload(path){
+  delete require.cache[require.resolve(path)];
+  return require(path);
+};
+
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -19,6 +25,7 @@ app.get('/slides', function(req, res) {
 });
 
 app.get('/config-detail', function(req, res) {
+  config_details = require.reload('./public/data/config.json');
   res.send(config_details);
 });
 
