@@ -1,10 +1,13 @@
 (function(){
   'use strict';
   prayTimes.setMethod('ISNA');
-
   // Maghrib salat time in minutes after athan
   var maghrib_buffer = 10;
   var pray_times, iqama_times, m_p_time, m_i_time, n_pray_info;
+
+  helpers.asyncConfig().success(function(config) {
+    $("#org_name")[0].innerHTML = config.org_name;
+  });
 
   function secondlyUpdate() {
     updateClock();
