@@ -17,6 +17,7 @@
   "author": "Nabeel El-Husayni & Ibrahim Hassan",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.14.2",
     "express": "^4.13.3"
   }
 }

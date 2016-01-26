@@ -220,3 +220,7 @@ hr.no-bot-margin {
  height:150px !important;
  border-radius:100px;
 }
+
+.config-header h1 {
+  line-height: 2em;
+}
