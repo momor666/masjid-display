@@ -89,8 +89,8 @@ var helpers = (function() {
 
   // Async call to fetch config details 
   _helpers.asyncConfig = function() {
-    return $.ajax({
-      url: 'config'
+   return $.ajax({
+      url: "config-detail"
     });
   }
 

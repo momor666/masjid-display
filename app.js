@@ -18,13 +18,23 @@ app.get('/slides', function(req, res) {
   res.send(names);
 });
 
-app.get('/config', function(req, res) {
+app.get('/config-detail', function(req, res) {
   res.send(config_details);
 });
 
 app.post('/config', function(req, res) {
+  fs.writeFile("./public/data/config.json", JSON.stringify(req.body, null, 2), function (err) {
+    if (err) {
+      res.json({"response": {"status": "Error", "code": 500, "message": err }});
+    } else {
+      res.json({"response": {"status": "OK", "code": 200 }});
+    }
+  });
   console.log(req.body);
-  res.json({"response": {"status": "OK", "code": 200 }});
+});
+
+app.get('/config',function(req,res){    
+  res.sendFile(__dirname + '/public/config.html');
 });
 
 app.get('/iqamas', function(req, res) {
