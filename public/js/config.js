@@ -7,6 +7,7 @@
     // Fill in known information
     $("#org_name").val(data['org_name']);
     $("#location").val(data['location']);
+    $("#tz_offset").val(data['tz_offset']);
   });
 
   $(document).ready(function() {
@@ -16,13 +17,24 @@
       $("#config").find("input[name]").each(function (index, node) {
         formData[node.name] = node.value;
       });
-      $.post('/config', formData).done(function(res) {
-        if(res.response.status == "OK") {
-          helpers.alert('success', 'Configuration updated successfully!');
-        } else {
-          helpers.alert('danger', 'Error updating configuration.');
+      var address_text = formData.location;
+      
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': address_text }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var pos = results[0].geometry.location;
+          formData.lat = pos.lat();
+          formData.lng = pos.lng();
+          console.log(formData); 
+          $.post('/config', formData).done(function(res) {
+            if(res.response.status == "OK") {
+              helpers.alert('success', 'Configuration updated successfully!');
+            } else {
+              helpers.alert('danger', 'Error updating configuration.');
+            }
+          });
         }
-      });
+      }); 
     });
 
     $("#get-location").click(function(e) {
