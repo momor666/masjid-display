@@ -87,12 +87,29 @@ var helpers = (function() {
     });
   }
 
+  // Async call to fetch config details 
+  _helpers.asyncConfig = function() {
+   return $.ajax({
+      url: "config-detail"
+    });
+  }
+
   // Returns the arabic word for the given prayer
   // prayer --> english word, non-capitalized
   _helpers.toArabic = function(prayer) {
     var arabics = {'fajr': 'الفجر', 'dhuhr': 'الظهر', 'asr': 'العصر', 'maghrib': 'المغرب', 'isha': 'العشاء' };
 
     return arabics[prayer];
+  }
+
+  _helpers.alert = function(type, message) {
+    $('#alert').html('' +
+      '<div class="alert alert-' + type + ' alert-dismissable">' + 
+        '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + 
+        '<span>' + 
+          message +
+        '</span>' + 
+      '</div>');
   }
 
   return _helpers;

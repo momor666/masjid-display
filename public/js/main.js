@@ -1,10 +1,18 @@
 (function(){
   'use strict';
   prayTimes.setMethod('ISNA');
-
   // Maghrib salat time in minutes after athan
   var maghrib_buffer = 10;
   var pray_times, iqama_times, m_p_time, m_i_time, n_pray_info;
+  var location = {};
+  var tz_offset;
+
+  helpers.asyncConfig().success(function(config) {
+    $("#org_name")[0].innerHTML = config.org_name;
+    tz_offset = config.tz_offset;    
+    location['lat'] = config.lat;
+    location['lng'] = config.lng;
+  });
 
   function secondlyUpdate() {
     updateClock();
@@ -42,7 +50,7 @@
 
   function updatePrayerTime() {
     helpers.asyncIqamas().success(function(iqamas) {
-      pray_times  = prayTimes.getTimes(new Date(), [42.097718, -71.19638599999999], -5, 'auto', '12h');
+      pray_times  = prayTimes.getTimes(new Date(), [location.lat, location.lng], tz_offset, 'auto', '12h');
       iqama_times = helpers.getIqamaRange(iqamas);
       m_p_time    = helpers.makeMoment(pray_times['maghrib']);
       m_i_time    = moment(m_p_time.add(maghrib_buffer, 'm')).format("h:mm a");

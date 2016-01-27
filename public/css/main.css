@@ -26,7 +26,7 @@
 body {
   font-family: 'Expletus Sans', cursive;
   color: #2ca4ab;
-  background-color: black;
+  background-color: white;
 }
 
 .main {
@@ -219,4 +219,8 @@ hr.no-bot-margin {
 .icne-logo {
  height:150px !important;
  border-radius:100px;
+}
+
+.config-header h1 {
+  line-height: 2em;
 }
