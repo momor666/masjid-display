@@ -1,6 +1,8 @@
 (function() {
 
   'use strict';
+
+  var iqama_ranges;
   
   helpers.asyncConfig().success(function(data) {
     
@@ -41,6 +43,28 @@
       e.preventDefault();
       populateLocation();
     }); 
+
+    $("#iqama-tab").click(function() {
+      helpers.asyncIqama().success(function(data) {
+        iqama_ranges = JSON.parse(data);
+
+        for(var key in iqama_ranges['iqamas']) {
+          var times = iqama_ranges['iqamas'][key];
+          var el = helpers.iqama_row(key.split("-")[0], key.split("-")[1], times);
+          $("#iqama_objs").append(el);
+
+          $(el).on('click', '.glyphicon-minus', function() {
+            removeRange(this);
+          });
+        }
+
+      });
+    });
+
+    $("#new_range").click(function() {
+      addRange()
+    });
+
   });
 
   function populateLocation() {
@@ -70,6 +94,43 @@
     browserHasGeolocation ?
                           alert('Error: The Geolocation service failed.') :
                           alert('Error: Your browser doesn\'t support geolocation.');
+  }
+
+  function removeRange(el) {
+    var key = $(el).closest('tr').attr('id');
+    delete iqama_ranges['iqamas'][key];
+    $(el).closest('tr').remove();           
+    helpers.asyncUpdateIqamas(iqama_ranges).success(function(res){
+      if(res.response.status == "OK") {
+        helpers.alert('success', 'Iqama ranges updated successfully!');
+      } else {
+        helpers.alert('danger', 'Error updating iqama ranges.');
+      }
+    });
+  }
+
+  function addRange() {
+    debugger
+    var range = [$("#i_start").val(), $("#i_end").val()].join("-");
+    var new_range  = {
+      'fajr': $("#i_fajr").val(),
+      'dhuhr': $("#i_dhuhr").val(),
+      'asr': $("#i_asr").val(),
+      'maghrib': $("#i_maghrib").val(),
+      'isha': $("#i_isha").val()
+    }
+    iqama_ranges['iqamas'][range] = new_range;
+
+    var el = helpers.iqama_row($("#i_start").val(), $("#i_end").val(), new_range);
+    $("#iqama_objs").append(el);
+               
+    // helpers.asyncUpdateIqamas(iqama_ranges).success(function(res){
+    //   if(res.response.status == "OK") {
+    //     helpers.alert('success', 'Iqama ranges updated successfully!');
+    //   } else {
+    //     helpers.alert('danger', 'Error updating iqama ranges.');
+    //   }
+    // });
   }
 
 

@@ -29,10 +29,15 @@ app.get('/config-detail', function(req, res) {
   res.send(config_details);
 });
 
+app.get('/iqamas', function(req, res) {
+  iqama_times = require.reload('./public/data/iqamas.json');
+  res.send(JSON.stringify(iqama_times));
+});
+
 app.post('/config', function(req, res) {
   fs.writeFile("./public/data/config.json", JSON.stringify(req.body, null, 2), function (err) {
     if (err) {
-      res.json({"response": {"status": "Error", "code": 500, "message": err }});
+      res.json({"response": {"status": "ERROR", "code": 500, "message": err }});
     } else {
       res.json({"response": {"status": "OK", "code": 200 }});
     }
@@ -40,12 +45,19 @@ app.post('/config', function(req, res) {
   console.log(req.body);
 });
 
-app.get('/config',function(req,res){    
-  res.sendFile(__dirname + '/public/config.html');
+app.post('/iqama-update', function(req, res) {
+  console.log(req.body);
+  fs.writeFile("./public/data/iqamas.json", JSON.stringify(req.body, null, 2), function (err) {
+    if (err) {
+      res.json({"response": {"status": "ERROR", "code": 500, "message": err }});
+    } else {
+      res.json({"response": {"status": "OK", "code": 200 }});
+    }
+  });
 });
 
-app.get('/iqamas', function(req, res) {
-  res.send(iqama_times);
+app.get('/config',function(req,res){    
+  res.sendFile(__dirname + '/public/config.html');
 });
 
 app.listen(port, ipaddress);

@@ -155,15 +155,16 @@ hr.no-bot-margin {
     border: none;
 }
 
-.table {
+.prayer-times.table {
   font-size: 40px;
 }
 
-.table thead {
+.prayer-times.table thead {
   color: #999;
 }
 
-.table tbody tr td, .table tbody tr th {
+.prayer-times.table tbody tr td, 
+.prayer-times.table tbody tr th {
   vertical-align: middle;
 }
 
@@ -223,4 +224,8 @@ hr.no-bot-margin {
 
 .config-header h1 {
   line-height: 2em;
+}
+
+.nav-tabs {
+  margin-bottom: 15px;
 }
