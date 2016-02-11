@@ -46,13 +46,22 @@ configure the kiosk to start in the url localhost:3000
 
 You can run the kiosk app on operating system start automatically
 
+### Windows: Instructions to start the node app automatically when Operating System boots
+Install "forever" npm tool from:
+```
+https://github.com/foreverjs/forever
+```
+Create a .bat file and put it in the application folder
+add the following commands in the .bat file:
+forever start app.js
+save the .bat file and close it
+create a shortcut to that batch file and add it to the windows startup folder along with the Kiosk shortcut 
+Thas it!
 # How to contribute
 Feel free to fork and pull request to merge.
 
 # License
 The MIT License
-
-Copyright (c) 2010-2016 Google, Inc. http://angularjs.org
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
