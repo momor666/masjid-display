@@ -42,11 +42,9 @@ app.post('/config', function(req, res) {
       res.json({"response": {"status": "OK", "code": 200 }});
     }
   });
-  console.log(req.body);
 });
 
 app.post('/iqama-update', function(req, res) {
-  console.log(req.body);
   fs.writeFile("./public/data/iqamas.json", JSON.stringify(req.body, null, 2), function (err) {
     if (err) {
       res.json({"response": {"status": "ERROR", "code": 500, "message": err }});

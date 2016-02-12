@@ -146,7 +146,7 @@ var helpers = (function() {
         '<td>' +
           '<div class="btn-group" role="group">' +
             '<button type="button" class="btn btn-default">' +
-              '<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>' +
+              '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>' +
             '</button>' +
           '</div>' +
         '</td>' +

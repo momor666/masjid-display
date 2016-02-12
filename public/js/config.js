@@ -27,7 +27,6 @@
           var pos = results[0].geometry.location;
           formData.lat = pos.lat();
           formData.lng = pos.lng();
-          console.log(formData); 
           $.post('/config', formData).done(function(res) {
             if(res.response.status == "OK") {
               helpers.alert('success', 'Configuration updated successfully!');
@@ -53,7 +52,7 @@
           var el = helpers.iqama_row(key.split("-")[0], key.split("-")[1], times);
           $("#iqama_objs").append(el);
 
-          $(el).on('click', '.glyphicon-minus', function() {
+          $(el).on('click', '.glyphicon-remove', function() {
             removeRange(this);
           });
         }
@@ -62,7 +61,15 @@
     });
 
     $("#new_range").click(function() {
-      addRange()
+      var valid = true;
+      $('input', $(this).closest('tr')).each(function() { 
+        valid = valid && this.checkValidity(); 
+      });
+      if(valid) {
+        addRange();
+      } else {
+        helpers.alert('danger', 'Please follow the format listed.');
+      }
     });
 
   });
@@ -110,7 +117,6 @@
   }
 
   function addRange() {
-    debugger
     var range = [$("#i_start").val(), $("#i_end").val()].join("-");
     var new_range  = {
       'fajr': $("#i_fajr").val(),
@@ -123,14 +129,22 @@
 
     var el = helpers.iqama_row($("#i_start").val(), $("#i_end").val(), new_range);
     $("#iqama_objs").append(el);
+
+    $(el).on('click', '.glyphicon-remove', function() {
+      removeRange(this);
+    });
+
+    $('input', $("#new_range").closest('tr')).each(function() { 
+        $(this).val(''); 
+      });
                
-    // helpers.asyncUpdateIqamas(iqama_ranges).success(function(res){
-    //   if(res.response.status == "OK") {
-    //     helpers.alert('success', 'Iqama ranges updated successfully!');
-    //   } else {
-    //     helpers.alert('danger', 'Error updating iqama ranges.');
-    //   }
-    // });
+    helpers.asyncUpdateIqamas(iqama_ranges).success(function(res){
+      if(res.response.status == "OK") {
+        helpers.alert('success', 'Iqama ranges updated successfully!');
+      } else {
+        helpers.alert('danger', 'Error updating iqama ranges.');
+      }
+    });
   }
 
 

@@ -80,41 +80,41 @@
                     <table class="table table-striped">
                       <thead>
                         <tr>
-                          <td>Start Date</td>
-                          <td>End Date</td>
-                          <td>Fajr</td>
-                          <td>Dhuhr</td>
-                          <td>Asr</td>
-                          <td>Maghrib</td>
-                          <td>Isha</td>
+                          <td>Start Date (MM/DD)</td>
+                          <td>End Date (MM/DD)</td>
+                          <td>Fajr (HH:MM)</td>
+                          <td>Dhuhr (HH:MM)</td>
+                          <td>Asr (HH:MM)</td>
+                          <td>Maghrib (HH:MM)</td>
+                          <td>Isha (HH:MM)</td>
                         </tr>
                       </thead>
                       <tbody id="iqama_objs">
                         <tr>
                           <td>
-                           <input type="date" id="i_start">
+                           <input type="text" pattern="(10|11|12|0?[1-9])\/([0-2][0-9]|3[0-1])" title="Please use the format MM/DD" id="i_start" placeholder="Ex. 06/12" required>
                           </td>
                           <td>
-                           <input type="date" id="i_end">
+                           <input type="text" pattern="(10|11|12|0?[1-9])\/([0-2][0-9]|3[0-1])" title="Please use the format MM/DD" id="i_end" placeholder="Ex. 12/31" required>
                           </td>
                           <td>
-                           <input type="time" id="i_fajr">
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_fajr" placeholder="Ex. 05:30" required>
                           </td>
                           <td>
-                           <input type="time" id="i_dhuhr">
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_dhuhr" placeholder="Ex. 12:45" required>
                           </td>
                           <td>
-                           <input type="time" id="i_asr">
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_asr" placeholder="Ex. 03:30" required>
                           </td>
                           <td>
-                           <input type="time" id="i_maghrib">
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_maghrib" placeholder="Ex. 07:00" required>
                           </td>
                           <td>
-                           <input type="time" id="i_isha">
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_isha" placeholder="Ex. 10:00" required>
                           </td>
                           <td>
                             <div class="btn-group" role="group">
-                              <button type="button" class="btn btn-default" id="new_range">
+                              <button type="button" class="btn btn-default" id="new_range" type="submit">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                               </button>
                             </div>
@@ -122,7 +122,6 @@
                         </tr>
                       </tbody>
                     </table>
-                    <div id="i"></div>
                   </div>
                 </div>
 
