@@ -33,38 +33,99 @@
         <!-- Page Content -->
         <div class="container-fluid">
           <div class="row">
-            <div class="col-xs-6 col-xs-offset-3">
+            <div class="col-xs-8 col-xs-offset-2">
               <div id="alert"></div>
-              <form id="config">
-                <div class="form-group row">
-                  <label for="org_name" class="col-sm-2 form-control-label">Organization Name</label>
-                  <div class="col-sm-10 input-group">
-                    <input type="text" name="org_name" class="form-control input" id="org_name" placeholder="Enter your organization's name">
+              <div>
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#config-detail" aria-controls="config-detail" role="tab" data-toggle="tab">Config Details</a></li>
+                  <li role="presentation"><a href="#iqamas" id="iqama-tab" aria-controls="iqamas" role="tab" data-toggle="tab">Iqama Times</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="config-detail">
+                    <form id="config">
+                      <div class="form-group row">
+                        <label for="org_name" class="col-sm-2 form-control-label">Organization Name</label>
+                        <div class="col-sm-10 input-group">
+                          <input type="text" name="org_name" class="form-control input" id="org_name" placeholder="Enter your organization's name">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="location" class="col-sm-2 form-control-label">Location</label>
+                        <div class="col-sm-10 input-group">
+                          <input type="text" name="location" class="form-control input" id="location" placeholder="Enter your location">
+                          <span class="input-group-btn">
+                            <button id="get-location" class="btn btn-default">
+                              <span>Get Location</span>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="tz_offset" class="col-sm-2 form-control-label">Timezone Offset</label>
+                        <div class="col-sm-10 input-group">
+                          <input type="number" name="tz_offset" class="form-control input" id="tz_offset" placeholder="Enter your timezone offset">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-offset-2 col-sm-10 input-group">
+                          <button type="submit" class="btn btn-default">Save</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="iqamas">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <td>Start Date (MM/DD)</td>
+                          <td>End Date (MM/DD)</td>
+                          <td>Fajr (HH:MM)</td>
+                          <td>Dhuhr (HH:MM)</td>
+                          <td>Asr (HH:MM)</td>
+                          <td>Maghrib (HH:MM)</td>
+                          <td>Isha (HH:MM)</td>
+                        </tr>
+                      </thead>
+                      <tbody id="iqama_objs">
+                        <tr>
+                          <td>
+                           <input type="text" pattern="(10|11|12|0?[1-9])\/([0-2][0-9]|3[0-1])" title="Please use the format MM/DD" id="i_start" placeholder="Ex. 06/12" required>
+                          </td>
+                          <td>
+                           <input type="text" pattern="(10|11|12|0?[1-9])\/([0-2][0-9]|3[0-1])" title="Please use the format MM/DD" id="i_end" placeholder="Ex. 12/31" required>
+                          </td>
+                          <td>
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_fajr" placeholder="Ex. 05:30" required>
+                          </td>
+                          <td>
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_dhuhr" placeholder="Ex. 12:45" required>
+                          </td>
+                          <td>
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_asr" placeholder="Ex. 03:30" required>
+                          </td>
+                          <td>
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_maghrib" placeholder="Ex. 07:00" required>
+                          </td>
+                          <td>
+                           <input type="text" pattern="(1[012]|0?[1-9]):[0-5][0-9]" id="i_isha" placeholder="Ex. 10:00" required>
+                          </td>
+                          <td>
+                            <div class="btn-group" role="group">
+                              <button type="button" class="btn btn-default" id="new_range" type="submit">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
                 </div>
-                <div class="form-group row">
-                  <label for="location" class="col-sm-2 form-control-label">Location</label>
-                  <div class="col-sm-10 input-group">
-                    <input type="text" name="location" class="form-control input" id="location" placeholder="Enter your location">
-                    <span class="input-group-btn">
-                      <button id="get-location" class="btn btn-default">
-                        <span>Get Location</span>
-                      </button>
-                    </span>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label for="tz_offset" class="col-sm-2 form-control-label">Timezone Offset</label>
-                  <div class="col-sm-10 input-group">
-                    <input type="number" name="tz_offset" class="form-control input" id="tz_offset" placeholder="Enter your timezone offset">
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <div class="col-sm-offset-2 col-sm-10 input-group">
-                    <button type="submit" class="btn btn-default">Save</button>
-                  </div>
-                </div>
-              </form>
+
+              </div>
             </div>
           </div>
         </div>

@@ -75,9 +75,9 @@ var helpers = (function() {
   // Async fetches the iqamas JSON file
   _helpers.asyncIqamas = function() {
     return $.ajax({
-          url: 'data/iqamas.json',
-          dataType: "json"
-        });
+      url: 'data/iqamas.json',
+      dataType: "json"
+    });
   };
 
   // Async call to fetch filenames from announcments folder
@@ -94,6 +94,24 @@ var helpers = (function() {
     });
   }
 
+  // Async call to fetch iqama times
+  _helpers.asyncIqama = function() {
+   return $.ajax({
+      url: "iqamas"
+    });
+  }
+
+  // Async call to update iqama ranges
+  _helpers.asyncUpdateIqamas = function(data) {
+    return $.ajax({
+      url:'/iqama-update',
+      type:"POST",
+      data:JSON.stringify(data),
+      contentType:"application/json; charset=utf-8",
+      dataType:"json"
+    });
+  }
+
   // Returns the arabic word for the given prayer
   // prayer --> english word, non-capitalized
   _helpers.toArabic = function(prayer) {
@@ -102,6 +120,8 @@ var helpers = (function() {
     return arabics[prayer];
   }
 
+  // Display an alert of the type given with the intended message
+  // Uses the generic Bootstrap types [success, danger, warning, etc]
   _helpers.alert = function(type, message) {
     $('#alert').html('' +
       '<div class="alert alert-' + type + ' alert-dismissable">' + 
@@ -110,6 +130,27 @@ var helpers = (function() {
           message +
         '</span>' + 
       '</div>');
+  }
+
+  // Return a HTML object that represents one row of an iqama range
+  _helpers.iqama_row = function(start, end, times) {
+    return $('' +
+      '<tr id="' + [start, end].join('-') + '">' + 
+        '<td>' + start + '</td>' + 
+        '<td>' + end   + '</td>' +
+        '<td>' + times['fajr'] + '</td>' +
+        '<td>' + times['dhuhr'] + '</td>' +
+        '<td>' + times['asr'] + '</td>' +
+        '<td>' + times['maghrib'] + '</td>' +
+        '<td>' + times['isha'] + '</td>' +
+        '<td>' +
+          '<div class="btn-group" role="group">' +
+            '<button type="button" class="btn btn-default">' +
+              '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>' +
+            '</button>' +
+          '</div>' +
+        '</td>' +
+      '</tr>');
   }
 
   return _helpers;
