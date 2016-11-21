@@ -25,7 +25,7 @@
 
 body {
   font-family: 'Expletus Sans', cursive;
-  color: #2ca4ab;
+  color: black;
   background-color: white;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 h1 {
-  font-size: 45px;
+  font-size: 55px;
 }
 
 h1, h2 {
@@ -43,6 +43,11 @@ h1, h2 {
 }
 
 h2 {
+  font-size: 45px;
+  margin-top:10px;
+}
+h2 {
+  font-size: 40px;
   margin-top:10px;
 }
 
@@ -52,6 +57,12 @@ hr.no-top-margin {
 
 hr.no-bot-margin {
   margin-bottom:0;
+}
+
+hr {
+      border: dashed;
+    border-width: 1px;
+    border-color: white;
 }
 
 .arabic {

@@ -41,6 +41,7 @@
                       </div>
                     </div>
                     <h2 class="text-center" id="time"></h2>
+                    
                   </div>
                 </div>
               </div>
@@ -55,91 +56,112 @@
               </div>
               <hr>
               <div class="row">
-                <div class="col-xs-6">
-                  <table class="table borderless text-center prayer-times">
-                    <thead>
-                      <tr>
-                        <td colspan=2>Prayer</td>
-                        <td>Athan</td>
-                        <td>Iqama</td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td> <span>Fajr</span> </td>
-                        <td> <span class="arabic a-prayer">الفجر</span> </td>
-                        <td> <span id="t_fajr"></span> </td>
-                        <td> <span id="i_fajr"></span> </td>
-                      </tr>
-
-                      <tr>
-                        <td> <span>Dhuhr</span> </td>
-                        <td> <span class="arabic a-prayer">الظهر</span> </td>
-                        <td> <span id="t_dhuhr"></span> </td>
-                        <td> <span id="i_dhuhr"></span> </td>
-                      </tr>
-
-                      <tr>
-                        <td> <span>Asr</span> </td>
-                        <td> <span class="arabic a-prayer">العصر</span> </td>
-                        <td> <span id="t_asr"></span> </td>
-                        <td> <span id="i_asr"></span> </td>
-                      </tr>
-
-                      <tr>
-                        <td> <span>Maghrib</span> </td>
-                        <td> <span class="arabic a-prayer">المغرب</span> </td>
-                        <td> <span id="t_maghrib"></span> </td>
-                        <td> <span id="i_maghrib"></span> </td>
-                      </tr>
-
-                      <tr>
-                        <td> <span>Isha</span> </td>
-                        <td> <span class="arabic a-prayer">العشاء</span> </td>
-                        <td> <span id="t_isha"></span> </td>
-                        <td> <span id="i_isha"></span> </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="col-xs-6 text-center">
-                  <div class="row">
-                    <div class="col-xs-12 next-prayer">
-                      <h1 class="gray">Next prayer:</h1>
-                      <div class="row" style="margin-top:20px">
-                        <div class="col-xs-6">
-                          <span id="next_prayer"></span>&emsp;<span class="arabic a-prayer" id="n_prayer_a"></span>
-                        </div>
-                        <div class="col-xs-6 next-prayer">
-                          <span>Athan <span id="athan_mins"></span></span>
-                          <br>
-                          <span>Salat <span id="salat_mins"></span></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h1 class="arabic ayah"> ۚ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَوْقُوتًا . . .<br><small class="gray">﴾سورة النساء١٠٣﴿</small></h1>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <h2 class="translation">...indeed, prayer has been decreed upon the believers at specified times.<br><small class="gray">[Quran 4:103]</small></h2>
-                    </div>
-                  </div>
-                </div>
+                <div class="row">
+  <div class="col-sm-6 col-md-4">
+  <div class="panel panel-default text-center">
+    <div class="panel-heading">
+      <h1 >Fajr - الفجر</h1>
+    </div>
+    <div class="panel-body" >
+      <div>
+        <h2 id="i_fajr"></h2>
+        <canvas id="canvas_fajr" width="350" height="350">
+        </canvas>
+      </div>
+      
+        <h3 id="t_fajr"></h3>
+        
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+  <div class="panel panel-default text-center">
+    <div class="panel-heading">
+      <h1 >Sunrise - الشروق</h1>
+    </div>
+    <div class="panel-body" >
+      <div>
+        <h2 id="t_sunrise"></h2>
+        <canvas id="canvas_sunrise" width="350" height="350">
+        </canvas>
+      </div>
+      
+        
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+  <div class="panel panel-default text-center">
+    <div class="panel-heading">
+      <h1 >Dhuhr - الظهر</h1>
+    </div>
+    <div class="panel-body" >
+      <div>
+        <h2 id="i_dhuhr"></h2>
+        <canvas id="canvas_dhuhr" width="350" height="350">
+        </canvas>
+      </div>
+      
+        <h3 id="t_dhuhr"></h3>
+        
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+  <div class="panel panel-default text-center">
+    <div class="panel-heading">
+      <h1 >Asr - العصر</h1>
+    </div>
+    <div class="panel-body" >
+      <div>
+        <h2 id="i_asr"></h2>
+        <canvas id="canvas_asr" width="350" height="350">
+        </canvas>
+      </div>
+      
+        <h3 id="t_asr"></h3>
+        
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+  <div class="panel panel-default text-center">
+    <div class="panel-heading">
+      <h1 >Maghrib - المغرب</h1>
+    </div>
+    <div class="panel-body" >
+      <div>
+        <h2 id="i_maghrib"></h2>
+        <canvas id="canvas_maghrib" width="350" height="350">
+        </canvas>
+      </div>
+      
+        <h3 id="t_maghrib"></h3>
+        
+    </div>
+  </div>
+</div>
+<div class="col-sm-6 col-md-4">
+  <div class="panel panel-default text-center">
+    <div class="panel-heading">
+      <h1 >Isha - العشاء</h1>
+    </div>
+    <div class="panel-body" >
+      <div>
+        <h2 id="i_isha"></h2>
+        <canvas id="canvas_isha" width="350" height="350">
+        </canvas>
+      </div>
+      
+        <h3 id="t_isha"></h3>
+        
+    </div>
+  </div>
+</div>
+</div>
+                
               </div>
-              <hr class="no-top-margin">
-              <div class="row footer">
-                <div class="col-xs-6 text-center">
-                  <h2 class="foot">Sunrise &emsp; <span id="t_sunrise"></span> &emsp; <span class="arabic a-prayer">الشروق</span></h2>
-                </div>
-                <div class="col-xs-6 text-center">
-                  <h2 class="foot">Jummah &emsp; 1:00 pm &emsp; <span class="arabic a-prayer">الجمعة</span></h2>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -151,6 +173,7 @@
     <script src="js/lib/moment-hijri.js"></script>
     <script src="js/lib/PrayTimes.js"></script>
     <script src="js/helpers.js"></script>
+    <script src="js/clock.js"></script>
     <script src="js/main.js"></script>
 
   </body>

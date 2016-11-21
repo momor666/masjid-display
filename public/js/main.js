@@ -29,7 +29,7 @@
 
   secondlyUpdate();
   dailyUpdate();
-  displayAnnouncments();
+  //displayAnnouncments();
 
   function displayAnnouncments() {
     helpers.asyncAnnouncements().success(function(announcments) {
@@ -56,19 +56,26 @@
       m_i_time    = moment(m_p_time.add(maghrib_buffer, 'm')).format("h:mm a");
       n_pray_info = helpers.nextPrayerInfo(iqama_times, pray_times, m_i_time);
       
-      $("#t_fajr")     .text(pray_times['fajr']);
+      $("#t_fajr")     .text('Azan: '+pray_times['fajr']);
       $("#t_sunrise")  .text(pray_times['sunrise']);
-      $("#t_dhuhr")    .text(pray_times['dhuhr']);
-      $("#t_asr")      .text(pray_times['asr']);
-      $("#t_maghrib")  .text(pray_times['maghrib']);
-      $("#t_isha")     .text(pray_times['isha']);
+      $("#t_dhuhr")    .text('Azan: '+pray_times['dhuhr']);
+      $("#t_asr")      .text('Azan: '+pray_times['asr']);
+      $("#t_maghrib")  .text('Azan: '+pray_times['maghrib']);
+      $("#t_isha")     .text('Azan: '+pray_times['isha']);
 
-      $("#i_fajr")     .text(iqama_times['fajr']);
-      $("#i_dhuhr")    .text(iqama_times['dhuhr']);
-      $("#i_asr")      .text(iqama_times['asr']);
-      $("#i_isha")     .text(iqama_times['isha']);
+      $("#i_fajr")     .text('Iqama: '+iqama_times['fajr']);
+      $("#i_dhuhr")    .text('Iqama: '+iqama_times['dhuhr']);
+      $("#i_asr")      .text('Iqama: '+iqama_times['asr']);
+      $("#i_isha")     .text('Iqama: '+iqama_times['isha']);
       
-      $("#i_maghrib")  .text(m_i_time);
+      $("#i_maghrib")  .text('Iqama: '+m_i_time);
+
+      new clock(document.getElementById("canvas_fajr"), iqama_times['fajr'].split(":")[0], iqama_times['fajr'].split(":")[1].split(" ")[0]);
+      new clock(document.getElementById("canvas_sunrise"), pray_times['sunrise'].split(":")[0], pray_times['sunrise'].split(":")[1].split(" ")[0]);
+      new clock(document.getElementById("canvas_dhuhr"), iqama_times['dhuhr'].split(":")[0], iqama_times['dhuhr'].split(":")[1].split(" ")[0]);
+      new clock(document.getElementById("canvas_asr"), iqama_times['asr'].split(":")[0], iqama_times['asr'].split(":")[1].split(" ")[0]);
+      new clock(document.getElementById("canvas_maghrib"), iqama_times['maghrib'].split(":")[0], iqama_times['maghrib'].split(":")[1].split(" ")[0]);
+      new clock(document.getElementById("canvas_isha"), iqama_times['isha'].split(":")[0], iqama_times['isha'].split(":")[1].split(" ")[0]);
 
     });
     
@@ -94,6 +101,8 @@
     $('#minute').css("transform", "rotate(" + minute + "deg)");
     $('#second').css("transform", "rotate(" + second + "deg)");
   }
+      
+
 
   function updateDateTime() {
     $("#date").text(moment().format("dddd, MMMM Do YYYY -- iDo iMMMM iYYYY"));
