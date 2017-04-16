@@ -9,7 +9,7 @@
 
   helpers.asyncConfig().success(function(config) {
     $("#org_name")[0].innerHTML = config.org_name;
-    tz_offset = config.tz_offset;    
+    tz_offset = config.tz_offset;
     location['lat'] = config.lat;
     location['lng'] = config.lng;
   });
@@ -55,7 +55,7 @@
       m_p_time    = helpers.makeMoment(pray_times['maghrib']);
       m_i_time    = moment(m_p_time.add(maghrib_buffer, 'm')).format("h:mm a");
       n_pray_info = helpers.nextPrayerInfo(iqama_times, pray_times, m_i_time);
-      
+
       $("#t_fajr")     .text('Azan: '+pray_times['fajr']);
       $("#t_sunrise")  .text(pray_times['sunrise']);
       $("#t_dhuhr")    .text('Azan: '+pray_times['dhuhr']);
@@ -67,23 +67,23 @@
       $("#i_dhuhr")    .text('Iqama: '+iqama_times['dhuhr']);
       $("#i_asr")      .text('Iqama: '+iqama_times['asr']);
       $("#i_isha")     .text('Iqama: '+iqama_times['isha']);
-      
+
       $("#i_maghrib")  .text('Iqama: '+m_i_time);
 
-      new clock(document.getElementById("canvas_fajr"), iqama_times['fajr'].split(":")[0], iqama_times['fajr'].split(":")[1].split(" ")[0]);
-      new clock(document.getElementById("canvas_sunrise"), pray_times['sunrise'].split(":")[0], pray_times['sunrise'].split(":")[1].split(" ")[0]);
-      new clock(document.getElementById("canvas_dhuhr"), iqama_times['dhuhr'].split(":")[0], iqama_times['dhuhr'].split(":")[1].split(" ")[0]);
-      new clock(document.getElementById("canvas_asr"), iqama_times['asr'].split(":")[0], iqama_times['asr'].split(":")[1].split(" ")[0]);
-      new clock(document.getElementById("canvas_maghrib"), iqama_times['maghrib'].split(":")[0], iqama_times['maghrib'].split(":")[1].split(" ")[0]);
-      new clock(document.getElementById("canvas_isha"), iqama_times['isha'].split(":")[0], iqama_times['isha'].split(":")[1].split(" ")[0]);
+      new Clock(document.getElementById("canvas_fajr"), iqama_times['fajr'].split(":")[0], iqama_times['fajr'].split(":")[1].split(" ")[0]);
+      new Clock(document.getElementById("canvas_sunrise"), pray_times['sunrise'].split(":")[0], pray_times['sunrise'].split(":")[1].split(" ")[0]);
+      new Clock(document.getElementById("canvas_dhuhr"), iqama_times['dhuhr'].split(":")[0], iqama_times['dhuhr'].split(":")[1].split(" ")[0]);
+      new Clock(document.getElementById("canvas_asr"), iqama_times['asr'].split(":")[0], iqama_times['asr'].split(":")[1].split(" ")[0]);
+      new Clock(document.getElementById("canvas_maghrib"), iqama_times['maghrib'].split(":")[0], iqama_times['maghrib'].split(":")[1].split(" ")[0]);
+      new Clock(document.getElementById("canvas_isha"), iqama_times['isha'].split(":")[0], iqama_times['isha'].split(":")[1].split(" ")[0]);
 
     });
-    
+
   }
 
   function updateNextPrayer() {
     if (n_pray_info && iqama_times && pray_times && m_i_time) {
-      n_pray_info = helpers.nextPrayerInfo(iqama_times, pray_times, m_i_time); 
+      n_pray_info = helpers.nextPrayerInfo(iqama_times, pray_times, m_i_time);
       $("#next_prayer").text(n_pray_info['prayer']);
       $("#n_prayer_a") .text(n_pray_info['arabic']);
       $("#athan_mins") .text(n_pray_info['athan']);
@@ -101,8 +101,6 @@
     $('#minute').css("transform", "rotate(" + minute + "deg)");
     $('#second').css("transform", "rotate(" + second + "deg)");
   }
-      
-
 
   function updateDateTime() {
     $("#date").text(moment().format("dddd, MMMM Do YYYY -- iDo iMMMM iYYYY"));
