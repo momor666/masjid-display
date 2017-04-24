@@ -25,7 +25,7 @@
 
 body {
   font-family: 'Expletus Sans', cursive;
-  color: black;
+  color: #4d575d;
   background-color: white;
 }
 
@@ -51,27 +51,8 @@ h2 {
   margin-top:10px;
 }
 
-hr.no-top-margin {
-  margin-top:0;
-}
-
-hr.no-bot-margin {
-  margin-bottom:0;
-}
-
-hr {
-      border: dashed;
-    border-width: 1px;
-    border-color: white;
-}
-
 .arabic {
   font-family: 'Amiri', serif;
-}
-
-.a-prayer {
-  font-size: 65px;
-  /*line-height:50px;*/
 }
 
 .a-header {
@@ -88,13 +69,13 @@ hr {
   font-family: 'Expletus Sans', cursive;
 }
 .hero-circle {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    position: relative;
-    border: 8px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 1px 8px rgba(34,34,34,0.3),inset 0 1px 8px rgba(34,34,34,0.3);
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  position: relative;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 8px rgba(34,34,34,0.3),inset 0 1px 8px rgba(34,34,34,0.3);
 }
 
 .hero-face {
@@ -103,47 +84,47 @@ hr {
 }
 
 .hero-hour {
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -4px 0 -4px -25%;
-    padding: 4px 0 4px 25%;
-    background: #fff;
-    -webkit-transform-origin: 100% 50%;
-    -ms-transform-origin: 100% 50%;
-    transform-origin: 100% 50%;
-    border-radius: 4px 0 0 4px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -4px 0 -4px -25%;
+  padding: 4px 0 4px 25%;
+  background: #fff;
+  -webkit-transform-origin: 100% 50%;
+  -ms-transform-origin: 100% 50%;
+  transform-origin: 100% 50%;
+  border-radius: 4px 0 0 4px;
 }
 
 .hero-minute {
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -40% -3px 0;
-    padding: 40% 3px 0;
-    background: #fff;
-    -webkit-transform-origin: 50% 100%;
-    -ms-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-    border-radius: 3px 3px 0 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40% -3px 0;
+  padding: 40% 3px 0;
+  background: #fff;
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  border-radius: 3px 3px 0 0;
 }
 
 .hero-second {
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -40% -1px 0 0;
-    padding: 40% 1px 0;
-    background: #fff;
-    -webkit-transform-origin: 50% 100%;
-    -ms-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -40% -1px 0 0;
+  padding: 40% 1px 0;
+  background: #fff;
+  -webkit-transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
 }
 
 .head-background {
@@ -162,55 +143,8 @@ hr {
   margin-top: 0px;
 }
 
-.borderless tbody tr td, .borderless tbody tr th, .borderless thead tr th {
-    border: none;
-}
-
-.prayer-times.table {
-  font-size: 40px;
-}
-
-.prayer-times.table thead {
-  color: #999;
-}
-
-.prayer-times.table tbody tr td, 
-.prayer-times.table tbody tr th {
-  vertical-align: middle;
-}
-
-.gray{
-  color: #999;
-  margin-top:15px;
-}
-
-.next-prayer {
-  color: #2ca4ab;
-  font-size: 45px;
-}
-#next_prayer {
-  font-size: 60px;
-  line-height: 150px;
-}
-
-.ayah {
-  font-size: 55px;
-  margin-top:40px;
-}
-
 .footer {
   margin-bottom:30px;
-}
-
-.foot {
-  font-size:40px;
-}
-
-.translation {
-  font-size: 35px;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 200;
-  margin-top:40px;
 }
 
 .carousel .item {
@@ -228,7 +162,7 @@ hr {
     top: 50%;
 }
 
-.icne-logo {
+.logo {
  height:150px !important;
  border-radius:100px;
 }
@@ -239,4 +173,14 @@ hr {
 
 .nav-tabs {
   margin-bottom: 15px;
+}
+
+.panel-default > .panel-heading {
+  color: #4d575d;
+}
+
+.active > .panel-heading {
+  background: #22a5ad;
+  color: #ffffff;
+  border-color: #22a5ad;
 }

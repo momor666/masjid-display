@@ -15,10 +15,10 @@ var helpers = (function() {
   // Make and return a moment object from a time
   // time --> expects format of 'h:mm am/pm'
   _helpers.makeMoment = function(time) {
-    return moment(moment().format("YYYY-MM-DD") + " " + time);
+    return moment(moment().format("YYYY-MM-DD") + " " + time, 'YYYY-MM-DD h:mm a');
   };
 
-  // Find info for next prayer based on today's iqama times and current time 
+  // Find info for next prayer based on today's iqama times and current time
   // [returns fajr if current time is after isha]
   // iqama_times -> hash of iqama times for today
   // pray_times --> hash of prayer times for today
@@ -62,7 +62,7 @@ var helpers = (function() {
     var today = moment().format("MM/DD"),
           key = "";
 
-      for(var range in data['iqamas']) {          
+      for(var range in data['iqamas']) {
         if (helpers.isBetween(today, range)) {
           key = range;
           break;
@@ -87,7 +87,7 @@ var helpers = (function() {
     });
   }
 
-  // Async call to fetch config details 
+  // Async call to fetch config details
   _helpers.asyncConfig = function() {
    return $.ajax({
       url: "config-detail"
@@ -124,19 +124,19 @@ var helpers = (function() {
   // Uses the generic Bootstrap types [success, danger, warning, etc]
   _helpers.alert = function(type, message) {
     $('#alert').html('' +
-      '<div class="alert alert-' + type + ' alert-dismissable">' + 
-        '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + 
-        '<span>' + 
+      '<div class="alert alert-' + type + ' alert-dismissable">' +
+        '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' +
+        '<span>' +
           message +
-        '</span>' + 
+        '</span>' +
       '</div>');
   }
 
   // Return a HTML object that represents one row of an iqama range
   _helpers.iqama_row = function(start, end, times) {
     return $('' +
-      '<tr id="' + [start, end].join('-') + '">' + 
-        '<td>' + start + '</td>' + 
+      '<tr id="' + [start, end].join('-') + '">' +
+        '<td>' + start + '</td>' +
         '<td>' + end   + '</td>' +
         '<td>' + times['fajr'] + '</td>' +
         '<td>' + times['dhuhr'] + '</td>' +
@@ -154,4 +154,4 @@ var helpers = (function() {
   }
 
   return _helpers;
-})(); 
+})();
