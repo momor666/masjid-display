@@ -53,7 +53,7 @@
       pray_times  = prayTimes.getTimes(new Date(), [location.lat, location.lng], tz_offset, 'auto', '12h');
       iqama_times = helpers.getIqamaRange(iqamas);
       m_p_time    = helpers.makeMoment(pray_times['maghrib']);
-      m_i_time    = moment(m_p_time.add(maghrib_buffer, 'm')).format("h:mm a");
+      m_i_time    = m_p_time.add(maghrib_buffer, 'm').format("h:mm a");
       n_pray_info = helpers.nextPrayerInfo(iqama_times, pray_times, m_i_time);
 
       $("#t_fajr")     .text('Azan: '+pray_times['fajr']);
@@ -74,7 +74,7 @@
       new Clock(document.getElementById("canvas_sunrise"), pray_times['sunrise'].split(":")[0], pray_times['sunrise'].split(":")[1].split(" ")[0]);
       new Clock(document.getElementById("canvas_dhuhr"), iqama_times['dhuhr'].split(":")[0], iqama_times['dhuhr'].split(":")[1].split(" ")[0]);
       new Clock(document.getElementById("canvas_asr"), iqama_times['asr'].split(":")[0], iqama_times['asr'].split(":")[1].split(" ")[0]);
-      new Clock(document.getElementById("canvas_maghrib"), iqama_times['maghrib'].split(":")[0], iqama_times['maghrib'].split(":")[1].split(" ")[0]);
+      new Clock(document.getElementById("canvas_maghrib"), m_i_time.split(":")[0], m_i_time.split(":")[1].split(" ")[0]);
       new Clock(document.getElementById("canvas_isha"), iqama_times['isha'].split(":")[0], iqama_times['isha'].split(":")[1].split(" ")[0]);
 
     });
@@ -88,6 +88,12 @@
       $("#n_prayer_a") .text(n_pray_info['arabic']);
       $("#athan_mins") .text(n_pray_info['athan']);
       $("#salat_mins") .text(n_pray_info['iqama']);
+
+      // Indicate next prayer for analog clock panel view
+      var prayerNames = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'];
+      for (var i in prayerNames) $('#panel-' + prayerNames[i]).removeClass('active');
+      var prayer = n_pray_info['prayer'].toLowerCase();
+      $('#panel-' + prayer).addClass('active');
     }
   }
 

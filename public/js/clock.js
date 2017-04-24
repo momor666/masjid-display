@@ -32,17 +32,12 @@ Clock.prototype = {
     this._ctx.fillStyle = 'white';
     this._ctx.fill();
 
-    var grad = this._ctx.createRadialGradient(0,0,this._radius*0.95, 0,0,this._radius*1.05);
-    grad.addColorStop(0, '#333');
-    grad.addColorStop(0.5, 'white');
-    grad.addColorStop(1, '#333');
-    this._ctx.strokeStyle = grad;
-
-    this._ctx.lineWidth = this._radius*0.1;
+    this._ctx.lineWidth = this._radius*0.05;
+    this._ctx.strokeStyle = '#4d575d';
     this._ctx.stroke();
     this._ctx.beginPath();
     this._ctx.arc(0, 0, this._radius*0.1, 0, 2*Math.PI);
-    this._ctx.fillStyle = '#333';
+    this._ctx.fillStyle = '#4d575d';
     this._ctx.fill();
   },
 
@@ -64,10 +59,10 @@ Clock.prototype = {
 
   _drawTime: function() {
     var hPos = (this._hour * Math.PI / 6) + (this._minute * Math.PI / (6 * 60));
-    this._drawHand(hPos, this._radius * 0.5, this._radius * 0.07);
+    this._drawHand(hPos, this._radius * 0.5, this._radius * 0.05);
 
     var mPos  =(this._minute * Math.PI / 30) + (1 * Math.PI / (30 * 60));
-    this._drawHand(mPos, this._radius * 0.8, this._radius * 0.07);
+    this._drawHand(mPos, this._radius * 0.7, this._radius * 0.05);
   },
 
   _drawHand: function(pos, l, w) {
