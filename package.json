@@ -1,23 +1,54 @@
 {
-  "name": "masjid-display",
-  "version": "1.0.0",
-  "description": "Masjid display board for announcements, prayer times, and iqama times",
+  "name": "es6-project-starter-kit",
+  "version": "5.3.1",
+  "description": "Universal Starter Kit to build any javascript ES6 project/library runnable in nodejs and on any browser",
   "main": "index.js",
+  "jsnext:main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "nodejs make serve",
+    "eslint": "nodejs make eslint",
+    "build": "nodejs make build",
+    "watch": "nodejs make watch",
+    "minify": "nodejs make minify",
+    "saucelabs": "nodejs make saucelabs",
+    "default": "nodejs make",
+    "prepublish": "nodejs make"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GianlucaGuarini/es6-project-starter-kit.git"
   },
   "keywords": [
-    "masjid",
-    "display",
-    "iqama",
-    "times",
-    "prayer",
-    "times"
+    "javascript",
+    "bootstrap",
+    "boilerplate",
+    "es6",
+    "es2015",
+    "babel",
+    "starter kit"
   ],
-  "author": "Nabeel El-Husayni & Ibrahim Hassan",
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-plugin-transform-es2015-modules-umd": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "body-parser": "^1.17.1",
+    "chokidar": "^1.6.1",
+    "eslint": "^3.13.0",
+    "express": "^4.15.2",
+    "fs": "0.0.1-security",
+    "jquery": "^3.2.1",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.18.1",
+    "moment-es6": "^1.0.0",
+    "prayer-times": "^0.1.0",
+    "rollup": "^0.41.1",
+    "serve": "^5.0.3",
+    "uglify-js": "^2.7.5"
+  },
+  "author": "Gianluca Guarini (http://gianlucaguarini.com/)",
   "license": "MIT",
-  "dependencies": {
-    "body-parser": "^1.14.2",
-    "express": "^4.13.3"
-  }
+  "bugs": {
+    "url": "https://github.com/GianlucaGuarini/es6-project-starter-kit/issues"
+  },
+  "homepage": "https://github.com/GianlucaGuarini/es6-project-starter-kit"
 }
